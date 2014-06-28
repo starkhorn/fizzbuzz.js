@@ -10,8 +10,13 @@ module.exports = (grunt) ->
                 tasks: ['coffee:compile']
 
             karma:
-                files: 'spec/**/*.coffee'
+                files: [
+                    'public/coffee/**/*.coffee'
+                    'spec/**/*.coffee'
+                ]
                 tasks: ['karma:unit:run']
+                options:
+                    livereload: true
 
         coffee:
             compile:
