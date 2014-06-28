@@ -8,6 +8,8 @@
       switch (number) {
         case 3:
           return 'Fizz';
+        case 5:
+          return 'Buzz';
         default:
           return number;
       }
