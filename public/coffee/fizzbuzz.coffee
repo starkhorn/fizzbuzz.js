@@ -1,1 +1,2 @@
-console.log 'hello world'
+class FizzBuzz
+    say: -> 1
