@@ -20,3 +20,6 @@ describe 'FizzBuzz', ->
 
     it 'says "Buzz" for number 10', ->
         expect(@fizzbuzz.say 10).toEqual 'Buzz'
+
+    it 'says "FizzBuzz" for number 15', ->
+            expect(@fizzbuzz.say 15).toEqual 'FizzBuzz'
