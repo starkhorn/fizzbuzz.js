@@ -4,8 +4,8 @@
   FizzBuzz = (function() {
     function FizzBuzz() {}
 
-    FizzBuzz.prototype.say = function() {
-      return 1;
+    FizzBuzz.prototype.say = function(number) {
+      return number;
     };
 
     return FizzBuzz;

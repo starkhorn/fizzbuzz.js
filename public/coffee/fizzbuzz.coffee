@@ -1,2 +1,3 @@
 class FizzBuzz
-    say: -> 1
+
+    say: (number) -> number
