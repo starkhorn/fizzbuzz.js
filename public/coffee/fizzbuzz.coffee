@@ -1,7 +1,8 @@
 class FizzBuzz
 
     say: (number) -> 
-        switch number
-            when 3 then 'Fizz'
-            when 5 then 'Buzz'
+
+        switch
+            when number % 3 is 0 then 'Fizz'
+            when number % 5 is 0 then 'Buzz'
             else number

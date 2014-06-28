@@ -66,7 +66,8 @@ module.exports = function(config) {
     singleRun: false,
 
     htmlReporter: {
-      outputFile: 'reporters/units.html'
+        outputDir: 'reporters',
+        templatePath: 'reporters/jasmine_template.html'
     }
   });
 };

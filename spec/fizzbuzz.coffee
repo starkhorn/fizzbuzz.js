@@ -14,3 +14,9 @@ describe 'FizzBuzz', ->
 
     it 'says "Buzz" for number 5', ->
         expect(@fizzbuzz.say 5).toEqual 'Buzz'
+
+    it 'says "Fizz" for number 6', ->
+        expect(@fizzbuzz.say 6).toEqual 'Fizz'
+
+    it 'says "Buzz" for number 10', ->
+        expect(@fizzbuzz.say 10).toEqual 'Buzz'
