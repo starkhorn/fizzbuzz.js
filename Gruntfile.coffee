@@ -1,12 +1,17 @@
 module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.loadNpmTasks 'grunt-karma'
 
     grunt.initConfig
         watch:
             coffee:
                 files: 'public/coffee/*.coffee'
                 tasks: ['coffee:compile']
+
+            karma:
+                files: 'spec/**/*.coffee'
+                tasks: ['karma:unit:run']
 
         coffee:
             compile:
@@ -17,4 +22,16 @@ module.exports = (grunt) ->
                 dest: "#{__dirname}/public/js/"
                 ext: '.js'
 
-    grunt.registerTask 'default', ['coffee:compile', 'watch']
+        karma:
+            unit: {
+                configFile: 'karma.conf.js'
+                background: true
+            }
+
+            first: {
+                configFile: 'karma.conf.js'
+                singleRun: true
+            }
+
+    grunt.registerTask 'test', ['karma:first:start', 'karma:unit:start']
+    grunt.registerTask 'default', ['coffee:compile', 'test', 'watch']
