@@ -5,7 +5,12 @@
     function FizzBuzz() {}
 
     FizzBuzz.prototype.say = function(number) {
-      return number;
+      switch (number) {
+        case 3:
+          return 'Fizz';
+        default:
+          return number;
+      }
     };
 
     return FizzBuzz;

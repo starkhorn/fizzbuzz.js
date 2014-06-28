@@ -1,3 +1,6 @@
 class FizzBuzz
 
-    say: (number) -> number
+    say: (number) -> 
+        switch number
+            when 3 then 'Fizz'
+            else number

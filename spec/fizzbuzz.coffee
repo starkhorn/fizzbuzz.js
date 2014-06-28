@@ -8,3 +8,6 @@ describe 'FizzBuzz', ->
 
     it 'says 2 for number 2', ->
         expect(@fizzbuzz.say 2).toEqual 2
+
+    it 'says "Fizz" for number 3', ->
+        expect(@fizzbuzz.say 3).toEqual 'Fizz'
