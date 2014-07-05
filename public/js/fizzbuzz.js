@@ -21,4 +21,10 @@
 
   })();
 
+  if (module.exports) {
+    module.exports = FizzBuzz;
+  } else {
+    this.FizzBuzz = FizzBuzz;
+  }
+
 }).call(this);

@@ -2,21 +2,19 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-karma'
+    grunt.loadNpmTasks 'grunt-mocha-test'
 
     grunt.initConfig
         watch:
             coffee:
-                files: 'public/coffee/*.coffee'
+                files: 'public/coffee/**/*.coffee'
                 tasks: ['coffee:compile']
 
-            karma:
-                files: [
-                    'public/coffee/**/*.coffee'
-                    'spec/**/*.coffee'
-                ]
-                tasks: ['karma:unit:run']
+            mochaTest:
                 options:
-                    livereload: true
+                    spawn: false
+                files: 'test/**/*.coffee'
+                tasks: ['test']
 
         coffee:
             compile:
@@ -27,16 +25,13 @@ module.exports = (grunt) ->
                 dest: "#{__dirname}/public/js/"
                 ext: '.js'
 
-        karma:
-            unit: {
-                configFile: 'karma.conf.js'
-                background: true
-            }
+        mochaTest:
+            test:
+                options:
+                    reporter: 'spec'
+                    require: 'coffee-script/register'
+                    clearRequireCache: true
+                src: ['test/**/*.coffee']
 
-            first: {
-                configFile: 'karma.conf.js'
-                singleRun: true
-            }
-
-    grunt.registerTask 'test', ['karma:first:start', 'karma:unit:start']
+    grunt.registerTask 'test', ['mochaTest']
     grunt.registerTask 'default', ['coffee:compile', 'test', 'watch']
