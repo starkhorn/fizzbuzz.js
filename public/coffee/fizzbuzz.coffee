@@ -8,7 +8,7 @@ class FizzBuzz
             when number % 5  is 0 then 'Buzz'
             else number
 
-if module.exports
+if module?.exports
     module.exports = FizzBuzz
 else
     @FizzBuzz = FizzBuzz

@@ -2,13 +2,42 @@
 <html>
 <head>
 	<title>Fizz Buzz</title>
+
+    <style>
+    
+        #output {
+            padding-top: 20px;
+            font-size: 90pt;
+            color: green;
+        }
+    
+    </style>
 </head>
 <body>
     <h1>Fizz Buzz!</h1>
     
-    <input type="text" placeholder="Enter a Number Here" />
-    <button>Tell Me!</button>
+    <input id="inputNumber" type="text" placeholder="Enter a Number Here" />
+    <button id="btnTellMe">Tell Me!</button>
+    <div id="output"></div>
 
+    <script src="lib/jquery/jquery-2.1.1.min.js"></script>
     <script src="js/fizzbuzz.js"></script>
+    <script>
+
+        !function($) {
+
+            var fizzbuzz = new FizzBuzz();
+
+            $('#btnTellMe').click(function() {
+                var number = $('#inputNumber').val();
+
+                if (number && (number = Number(number))) {
+                    $('#output').text(fizzbuzz.say(number));
+                }
+            });
+
+        }(jQuery);
+
+    </script>
 </body>
 </html>

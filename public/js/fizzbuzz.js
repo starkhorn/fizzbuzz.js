@@ -21,7 +21,7 @@
 
   })();
 
-  if (module.exports) {
+  if (typeof module !== "undefined" && module !== null ? module.exports : void 0) {
     module.exports = FizzBuzz;
   } else {
     this.FizzBuzz = FizzBuzz;
